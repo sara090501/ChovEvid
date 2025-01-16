@@ -43,5 +43,10 @@ namespace ChovEvidWpf
             var showDetailWindow = new DogsWindow();
             showDetailWindow.ShowDialog();
         }
+
+        private void ExportToDocx_Click(object sender, RoutedEventArgs e)
+        {
+            _ = _apiClient.ExportBreedingStationsToDocx();
+        }
     }
 }

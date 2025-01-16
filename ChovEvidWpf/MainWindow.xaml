@@ -7,14 +7,10 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <!-- Definícia riadkov a stĺpcov -->
         <Grid.RowDefinitions>
             <RowDefinition Height="12.5*" />
-            <!-- Druhá osmina -->
             <RowDefinition Height="75*" />
-            <!-- Päť osmin (3.-7. osmina) -->
             <RowDefinition Height="12.5*" />
-            <!-- Zvyšok priestoru -->
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*" />
@@ -23,17 +19,14 @@
             <ColumnDefinition Width="1*" />
         </Grid.ColumnDefinitions>
 
-        <!-- Nadpis v prvej osmine -->
         <TextBlock Text="Evidencia chovateľských staníc - ChovEvid" 
                    Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" 
                    HorizontalAlignment="Center" VerticalAlignment="Center" 
                    FontSize="24" FontWeight="Bold" />
 
-        <!-- Tlačidlá v druhom riadku -->
-        <Button Content="Exportovať do .docx" Grid.Row="2" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10"/>
         <Button Content="Zobraziť psov" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10" Click="ShowDogs_Click"/>
-
-        <!-- ListView pod tlačidlami s obmedzenou šírkou -->
+        <Button Content="Exportovať do .docx" Grid.Row="2" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10" Click="ExportToDocx_Click"/>
+       
         <ListView x:Name="BreedingStationsListView" 
                   Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4"
                   Margin="10,0,0,10">

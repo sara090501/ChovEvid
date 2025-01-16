@@ -53,43 +53,16 @@ namespace ChovEvidWpf
             var query = $"dog/remove/{id}";
             var request = new HttpRequestMessage(HttpMethod.Delete, query);
             var response = await _httpClient.SendAsync(request);
-            response.EnsureSuccessStatusCode(); // Skontroluje úspešnosť odpovede
+            response.EnsureSuccessStatusCode();
             return await response.Content.ReadAsStreamAsync();
         }
 
-
-        //public async Task<List<ThemeDtoCsv>> GetThemesAsync(int? year = null, int? stProgramId = null)
-        //{
-        //    var query = $"api/theme/themesCsv?year={year}&stProgramId={stProgramId}";
-        //    var response = await _httpClient.GetAsync(query);
-        //    response.EnsureSuccessStatusCode();
-        //    var json = await response.Content.ReadAsStringAsync();
-        //    return JsonSerializer.Deserialize<List<ThemeDtoCsv>>(json, _jsonOptions);
-        //}
-
-        //public async Task<Stream> GetThemesDocx(int id)
-        //{
-        //    var query = $"api/theme/theme2docx/{id}";
-        //    var response = await _httpClient.GetAsync(query);
-        //    response.EnsureSuccessStatusCode();
-        //    return await response.Content.ReadAsStreamAsync();
-        //}
-        //public async Task<Stream> GetThemesCsv(int? year = null, int? stProgramId = null)
-        //{
-        //    var query = $"api/theme/themes2csv?year={year}&stProgramId={stProgramId}";
-        //    var response = await _httpClient.GetAsync(query);
-        //    response.EnsureSuccessStatusCode();
-
-        //    return await response.Content.ReadAsStreamAsync();
-        //}
-
-        //public async Task<List<int>> GetThemeYearsAsync()
-        //{
-        //    var response = await _httpClient.GetAsync("api/theme/themesyears");
-        //    response.EnsureSuccessStatusCode();
-        //    var json = await response.Content.ReadAsStringAsync();
-        //    return JsonSerializer.Deserialize<List<int>>(json, _jsonOptions);
-        //}
+        public async Task<Stream> ExportBreedingStationsToDocx()
+        {
+            var response = await _httpClient.GetAsync("BreedingStation/exportToDocx");
+            response.EnsureSuccessStatusCode();
+            return await response.Content.ReadAsStreamAsync();
+        }
     }
 
 }

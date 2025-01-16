@@ -30,18 +30,18 @@ namespace ChovEvidApi.Controllers
             }
         }
 
-        [HttpPost("exportToDocx")]
+        [HttpGet("exportToDocx")]
         public IActionResult ExportToDocx()
         {
             try
             {
                 var breedingStations = _breedingStationRepository.GetAll();
-                _breedingStationRepository.GenerateBreedingStationDoc(breedingStations, "DogReport.docx");
+                _breedingStationRepository.GenerateBreedingStationDoc(breedingStations, "BreedingStationsReport.docx");
                 return Ok();
             }
             catch (Exception ex)
             {
-                return StatusCode(500, $"Chyba pri naèítavaní údajov o chovate¾ských staniciach: {ex.Message}");
+                return StatusCode(500, $"Chyba pri exposte chovate¾ských staníc do DOCX súboru: {ex.Message}");
             }
         }
     }
