@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ChovEvid.Entities;
 
 namespace ChovEvidWpf
 {
@@ -13,6 +12,7 @@ namespace ChovEvidWpf
     using System.Net.Http;
     using System.Text.Json;
     using System.Threading.Tasks;
+    using ChovEvidApi.Dto;
 
     public class ApiClient
     {
@@ -28,13 +28,13 @@ namespace ChovEvidWpf
             };
         }
 
-        public async Task<List<BreedingStation>> GetAllBreedingStations()
+        public async Task<List<BreedingStationDto>> GetAllBreedingStations()
         {
             var response = await _httpClient.GetAsync("breedingstation/getAll");
             response.EnsureSuccessStatusCode();
 
             var json = await response.Content.ReadAsStringAsync();
-            return JsonSerializer.Deserialize<List<BreedingStation>>(json, _jsonOptions)
+            return JsonSerializer.Deserialize<List<BreedingStationDto>>(json, _jsonOptions)
                    ?? throw new Exception("Získanie informácií o osobách neúspešné.");
         }
 

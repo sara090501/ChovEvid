@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using ChovEvid.Repositories;
 using ChovEvid.Entities;
+using ChovEvidApi.Dto;
 
 namespace ChovEvidApi.Controllers
 {
@@ -16,7 +17,7 @@ namespace ChovEvidApi.Controllers
         }
 
         [HttpGet("getAll")]
-        public ActionResult<IEnumerable<BreedingStation>> GetAll()
+        public ActionResult<IEnumerable<BreedingStationDto>> GetAll()
         {
             try
             {

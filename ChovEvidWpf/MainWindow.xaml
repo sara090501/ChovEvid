@@ -39,6 +39,10 @@
                 <GridView>
                     <GridViewColumn Header="Registračné číslo" DisplayMemberBinding="{Binding RegNumber}" />
                     <GridViewColumn Header="Meno" DisplayMemberBinding="{Binding Name}" />
+                    <GridViewColumn Header="Majiteľ" DisplayMemberBinding="{Binding Owner}" />
+                    <GridViewColumn Header="Počet evidovaných psov" DisplayMemberBinding="{Binding DogCount}" />
+                    <GridViewColumn Header="Vznik" DisplayMemberBinding="{Binding Created}" />
+                    <GridViewColumn Header="Sídlo" DisplayMemberBinding="{Binding Location}" />
                 </GridView>
             </ListView.View>
         </ListView>

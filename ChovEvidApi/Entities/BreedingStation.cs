@@ -21,5 +21,8 @@ namespace ChovEvid.Entities
 
         [Required]
         public required DateTime Created { get; set; }
+
+        [Required]
+        public required string Location { get; set; }
     }
 }
