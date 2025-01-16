@@ -18,5 +18,8 @@ namespace ChovEvid.Entities
 
         [Required]
         public required int RegNumber { get; set; }
+
+        [Required]
+        public required DateTime Created { get; set; }
     }
 }

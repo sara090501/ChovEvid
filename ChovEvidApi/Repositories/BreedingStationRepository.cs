@@ -21,7 +21,7 @@ namespace ChovEvid.Repositories
                 connection.Open();
                 using (var command = connection.CreateCommand())
                 {
-                    command.CommandText = "SELECT id, id_owner, name, reg_number " +
+                    command.CommandText = "SELECT id, id_owner, name, reg_number, created " +
                                             "FROM chovevid_breeding_station ORDER BY id";
 
                     using (var reader = command.ExecuteReader())
@@ -33,7 +33,8 @@ namespace ChovEvid.Repositories
                                 Id = reader.GetInt32(0),
                                 IdOwner = reader.GetInt32(1),
                                 Name = reader.GetString(2),
-                                RegNumber = reader.GetInt32(3)
+                                RegNumber = reader.GetInt32(3),
+                                Created = reader.GetDateTime(4)
                             });
                         }
                     }

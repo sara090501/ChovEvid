@@ -19,6 +19,10 @@ namespace ChovEvid.Entities
         [MaxLength(10)]
         public required string Name { get; set; }
 
+        [Required]
+        [MaxLength(1)]
+        public required string Sex { get; set; }
+
         [MaxLength(50)]
         public required string State { get; set; }
     }
