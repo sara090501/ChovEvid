@@ -1,5 +1,4 @@
-﻿using ChovEvid.Entities;
-using ChovEvidApi.Dto;
+﻿using ChovEvidApi.Dto;
 using Oracle.ManagedDataAccess.Client;
 
 namespace ChovEvid.Repositories

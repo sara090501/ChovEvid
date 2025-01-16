@@ -29,5 +29,20 @@ namespace ChovEvidApi.Controllers
                 return StatusCode(500, $"Chyba pri naèítavaní údajov o chovate¾ských staniciach: {ex.Message}");
             }
         }
+
+        [HttpPost("exportToDocx")]
+        public IActionResult ExportToDocx()
+        {
+            try
+            {
+                var breedingStations = _breedingStationRepository.GetAll();
+                _breedingStationRepository.GenerateBreedingStationDoc(breedingStations, "DogReport.docx");
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Chyba pri naèítavaní údajov o chovate¾ských staniciach: {ex.Message}");
+            }
+        }
     }
 }
