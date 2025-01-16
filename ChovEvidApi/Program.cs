@@ -9,14 +9,15 @@ namespace ChovEvid
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+            var _connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
+                                    ?? throw new InvalidOperationException("Connection string 'DefaultConnection' is not configured.");
 
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
             builder.Services.AddScoped<IPersonRepository, PersonRepository>(provider =>
-                new PersonRepository(connectionString));
+                new PersonRepository(_connectionString));
 
             var app = builder.Build();
 
