@@ -1,9 +1,10 @@
 ﻿using ChovEvid.Entities;
+using ChovEvidApi.Dto;
 
 namespace ChovEvid.Repositories
 {
     public interface IDogRepository
     {
-        IEnumerable<Dog> GetAll();
+        IEnumerable<DogDto> GetAll();
     }
 }

@@ -38,6 +38,16 @@ namespace ChovEvidWpf
                    ?? throw new Exception("Získanie informácií o osobách neúspešné.");
         }
 
+        public async Task<List<DogDto>> GetAllDogs()
+        {
+            var response = await _httpClient.GetAsync("dog/getAll");
+            response.EnsureSuccessStatusCode();
+
+            var json = await response.Content.ReadAsStringAsync();
+            return JsonSerializer.Deserialize<List<DogDto>>(json, _jsonOptions)
+                   ?? throw new Exception("Získanie informácií o psoch neúspešné.");
+        }
+
 
         //public async Task<List<ThemeDtoCsv>> GetThemesAsync(int? year = null, int? stProgramId = null)
         //{

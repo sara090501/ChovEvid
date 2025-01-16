@@ -33,7 +33,7 @@
 
         <!-- Tlačidlá v druhom riadku -->
         <Button Content="Zobraziť osoby" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10"/>
-        <Button Content="Zobraziť psov" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10"/>
+        <Button Content="Zobraziť psov" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10" Click="ShowDogs_Click"/>
         <Button Content="Zobraziť chovateľské stanice" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10"/>
         <!-- Štvrtý stĺpec je prázdny -->
 
