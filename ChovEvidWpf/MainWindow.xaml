@@ -10,10 +10,8 @@
         <!-- Definícia riadkov a stĺpcov -->
         <Grid.RowDefinitions>
             <RowDefinition Height="12.5*" />
-            <!-- Prvá osmina -->
-            <RowDefinition Height="12.5*" />
             <!-- Druhá osmina -->
-            <RowDefinition Height="62.5*" />
+            <RowDefinition Height="75*" />
             <!-- Päť osmin (3.-7. osmina) -->
             <RowDefinition Height="12.5*" />
             <!-- Zvyšok priestoru -->
@@ -32,14 +30,12 @@
                    FontSize="24" FontWeight="Bold" />
 
         <!-- Tlačidlá v druhom riadku -->
-        <Button Content="Zobraziť osoby" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10"/>
-        <Button Content="Zobraziť psov" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10" Click="ShowDogs_Click"/>
-        <Button Content="Zobraziť chovateľské stanice" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10"/>
-        <!-- Štvrtý stĺpec je prázdny -->
+        <Button Content="Exportovať do .docx" Grid.Row="2" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10"/>
+        <Button Content="Zobraziť psov" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10" Click="ShowDogs_Click"/>
 
         <!-- ListView pod tlačidlami s obmedzenou šírkou -->
         <ListView x:Name="BreedingStationsListView" 
-                  Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3"
+                  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4"
                   Margin="10,0,0,10">
             <ListView.View>
                 <GridView>
