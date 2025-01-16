@@ -8,8 +8,10 @@ create table chovevid_person (
 
 create table chovevid_breeding_station (
     id          number not null primary key,
+    id_owner    number not null,
     name        varchar(200),
-    reg_number  number
+    reg_number  number,
+    constraint fk_breeding_station_person foreign key (id_owner) references chovevid_person(id)
 );
 
 create table chovevid_dog (
@@ -22,9 +24,10 @@ create table chovevid_dog (
     constraint fk_dog_breeding_station foreign key (id_breeding_station) references chovevid_breeding_station(id)
 );
 
+
+drop table chovevid_dog;
 drop table chovevid_person;
 drop table chovevid_breeding_station;
-drop table chovevid_dog;
 
 
 -- Vloženie záznamov do chovevid_person

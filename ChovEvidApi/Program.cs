@@ -20,6 +20,8 @@ namespace ChovEvid
                 new PersonRepository(_connectionString));
             builder.Services.AddScoped<IDogRepository, DogRepository>(provider =>
                 new DogRepository(_connectionString));
+            builder.Services.AddScoped<IBreedingStationRepository, BreedingStationRepository>(provider =>
+                new BreedingStationRepository(_connectionString));
 
             var app = builder.Build();
 
