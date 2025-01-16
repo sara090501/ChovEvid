@@ -11,6 +11,7 @@ create table chovevid_breeding_station (
     id_owner    number not null,
     name        varchar(200),
     reg_number  number,
+    created     date,
     constraint fk_breeding_station_person foreign key (id_owner) references chovevid_person(id)
 );
 
@@ -19,6 +20,7 @@ create table chovevid_dog (
     id_owner                number not null,
     id_breeding_station     number not null,
     name                    varchar(50) not null,
+    sex                     varchar(1) check (sex in ('F', 'M')),
     state                   varchar(50) check (state in ('REZERVOVANY', 'PREDANY', 'OSTAVA')),
     constraint fk_dog_person foreign key (id_owner) references chovevid_person(id),
     constraint fk_dog_breeding_station foreign key (id_breeding_station) references chovevid_breeding_station(id)
@@ -29,41 +31,26 @@ drop table chovevid_dog;
 drop table chovevid_person;
 drop table chovevid_breeding_station;
 
+-- INSERTY DO TABUĽKY chovevid_person
+INSERT INTO chovevid_person (id, first_name, last_name, phone_number, email) VALUES (1, 'John', 'Doe', '1234567890', 'john.doe@example.com');
+INSERT INTO chovevid_person (id, first_name, last_name, phone_number, email) VALUES (2, 'Jane', 'Smith', '0987654321', 'jane.smith@example.com');
+INSERT INTO chovevid_person (id, first_name, last_name, phone_number, email) VALUES (3, 'Michael', 'Johnson', '1122334455', 'michael.j@example.com');
+INSERT INTO chovevid_person (id, first_name, last_name, phone_number, email) VALUES (4, 'Emily', 'Davis', '5566778899', 'emily.d@example.com');
+INSERT INTO chovevid_person (id, first_name, last_name, phone_number, email) VALUES (5, 'Chris', 'Brown', '6677889900', 'chris.brown@example.com');
 
--- Vloženie záznamov do chovevid_person
-insert into chovevid_person (id, first_name, last_name, phone_number, email) 
-values (1, 'John', 'Doe', '1234567890', 'john.doe@example.com');
-insert into chovevid_person (id, first_name, last_name, phone_number, email) 
-values (2, 'Jane', 'Smith', '0987654321', 'jane.smith@example.com');
-insert into chovevid_person (id, first_name, last_name, phone_number, email) 
-values (3, 'Alice', 'Brown', '5551234567', 'alice.brown@example.com');
-insert into chovevid_person (id, first_name, last_name, phone_number, email) 
-values (4, 'Bob', 'Johnson', '4449876543', 'bob.johnson@example.com');
-insert into chovevid_person (id, first_name, last_name, phone_number, email) 
-values (5, 'Charlie', 'Williams', '3335557777', 'charlie.williams@example.com');
+-- INSERTY DO TABUĽKY chovevid_breeding_station
+INSERT INTO chovevid_breeding_station (id, id_owner, name, reg_number) VALUES (1, 1, 'Sunny Paws Breeding', 101);
+INSERT INTO chovevid_breeding_station (id, id_owner, name, reg_number) VALUES (2, 2, 'Happy Tails Kennel', 102);
+INSERT INTO chovevid_breeding_station (id, id_owner, name, reg_number) VALUES (3, 3, 'Puppy Paradise', 103);
+INSERT INTO chovevid_breeding_station (id, id_owner, name, reg_number) VALUES (4, 4, 'Furry Friends Breeders', 104);
+INSERT INTO chovevid_breeding_station (id, id_owner, name, reg_number) VALUES (5, 5, 'Loyal Companions Kennel', 105);
 
--- Vloženie záznamov do chovevid_breeding_station
-insert into chovevid_breeding_station (id, name, reg_number) 
-values (1, 'Happy Paws Breeding', 1001);
-insert into chovevid_breeding_station (id, name, reg_number) 
-values (2, 'Golden Retriever Paradise', 1002);
-insert into chovevid_breeding_station (id, name, reg_number) 
-values (3, 'Labrador Kingdom', 1003);
-insert into chovevid_breeding_station (id, name, reg_number) 
-values (4, 'Poodle Palace', 1004);
-insert into chovevid_breeding_station (id, name, reg_number) 
-values (5, 'Bulldog Haven', 1005);
+-- INSERTY DO TABUĽKY chovevid_dog
+INSERT INTO chovevid_dog (id, id_owner, id_breeding_station, name, state) VALUES (1, 1, 1, 'Buddy', 'REZERVOVANY');
+INSERT INTO chovevid_dog (id, id_owner, id_breeding_station, name, state) VALUES (2, 2, 2, 'Bella', 'PREDANY');
+INSERT INTO chovevid_dog (id, id_owner, id_breeding_station, name, state) VALUES (3, 3, 3, 'Charlie', 'OSTAVA');
+INSERT INTO chovevid_dog (id, id_owner, id_breeding_station, name, state) VALUES (4, 4, 4, 'Lucy', 'PREDANY');
+INSERT INTO chovevid_dog (id, id_owner, id_breeding_station, name, state) VALUES (5, 5, 5, 'Max', 'REZERVOVANY');
 
--- Vloženie záznamov do chovevid_dog
-insert into chovevid_dog (id, id_owner, id_breeding_station, name, state) 
-values (1, 1, 1, 'Buddy', 'REZERVOVANY');
-insert into chovevid_dog (id, id_owner, id_breeding_station, name, state) 
-values (2, 2, 2, 'Bella', 'PREDANY');
-insert into chovevid_dog (id, id_owner, id_breeding_station, name, state) 
-values (3, 3, 3, 'Charlie', 'OSTAVA');
-insert into chovevid_dog (id, id_owner, id_breeding_station, name, state) 
-values (4, 4, 4, 'Lucy', 'PREDANY');
-insert into chovevid_dog (id, id_owner, id_breeding_station, name, state) 
-values (5, 5, 5, 'Max', 'REZERVOVANY');
 
 commit;
