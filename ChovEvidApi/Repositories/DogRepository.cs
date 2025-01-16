@@ -49,5 +49,20 @@ namespace ChovEvid.Repositories
 
             return dogs;
         }
+
+        public void RemoveDogById(int id)
+        {
+            using (var connection = new OracleConnection(_connectionString))
+            {
+                connection.Open();
+                using (var command = connection.CreateCommand())
+                {
+                    command.CommandText = "DELETE FROM chovevid_dog d " +
+                                            "WHERE id=:Id";
+                    command.Parameters.Add(new OracleParameter(":Id", id));
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
     }
 }

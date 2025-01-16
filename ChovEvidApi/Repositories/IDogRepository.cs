@@ -6,5 +6,6 @@ namespace ChovEvid.Repositories
     public interface IDogRepository
     {
         IEnumerable<DogDto> GetAll();
+        void RemoveDogById(int id);
     }
 }

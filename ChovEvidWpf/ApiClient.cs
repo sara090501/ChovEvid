@@ -48,6 +48,15 @@ namespace ChovEvidWpf
                    ?? throw new Exception("Získanie informácií o psoch neúspešné.");
         }
 
+        public async Task<Stream> RemoveDogById(int id)
+        {
+            var query = $"dog/remove/{id}";
+            var request = new HttpRequestMessage(HttpMethod.Delete, query);
+            var response = await _httpClient.SendAsync(request);
+            response.EnsureSuccessStatusCode(); // Skontroluje úspešnosť odpovede
+            return await response.Content.ReadAsStreamAsync();
+        }
+
 
         //public async Task<List<ThemeDtoCsv>> GetThemesAsync(int? year = null, int? stProgramId = null)
         //{

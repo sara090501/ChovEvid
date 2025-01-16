@@ -45,6 +45,6 @@
             </ListView.View>
         </ListView>
 
-        <Button x:Name="RemoveDogRecord" Content="Odstrániť záznam" Grid.Row="4" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10" IsEnabled="False"/>
+        <Button x:Name="RemoveDogRecord" Content="Odstrániť záznam" Grid.Row="4" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10" IsEnabled="False" Click="RemoveDogRecord_Click"/>
     </Grid>
 </Window>

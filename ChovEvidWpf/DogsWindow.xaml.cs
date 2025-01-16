@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ChovEvidApi.Dto;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -47,6 +48,16 @@ namespace ChovEvidWpf
             if (DogsListView.SelectedItem != null)
             {
                 RemoveDogRecord.IsEnabled = true;
+            }
+        }
+
+        private async void RemoveDogRecord_Click(object sender, RoutedEventArgs e)
+        {
+            if (DogsListView.SelectedItem != null)
+            {
+                var selectedTheme = (DogDto)DogsListView.SelectedItem;
+                await _apiClient.RemoveDogById(selectedTheme.Id);
+                _ = LoadDataAsync();
             }
         }
     }

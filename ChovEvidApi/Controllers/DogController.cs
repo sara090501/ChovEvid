@@ -28,5 +28,19 @@ namespace ChovEvidApi.Controllers
                 return StatusCode(500, $"Chyba pri naèítavaní údajov o psoch: {ex.Message}");
             }
         }
+
+        [HttpDelete("remove/{id}")]
+        public IActionResult RemoveDogById(int id)
+        {
+            try
+            {
+                _dogRepository.RemoveDogById(id);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Chyba pri odstraòovaní záznamu o psovi: {ex.Message}");
+            }
+        }
     }
 }
